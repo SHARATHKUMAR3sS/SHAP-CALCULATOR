@@ -40,6 +40,7 @@ double cosine(double angle);
 double tangent(double angle);
 double logarithm(double num);
 double factorial(double num);
+int matrix();
 
 
 // MATRIX FUNCTIONS
@@ -107,7 +108,7 @@ void exitScreen()
 {
     screenCleaner();
     printf("-------------------------------------\n");
-    printf(" >>> Creators:\n \"GORTHY HARI KRISHNA SAI\"\n \"BAKAM SHARATH KUMAR\"\n \"P. PRUDHVI\" \n \"AJAY VARDHAN NAIK\" <<< \n");
+    printf(" >>> Creators:\n \"GORTHY HARI KRISHNA SAI\"\n \"BAKAM SHARATH KUMAR\"\n \"P. PRUDHVI\" \n \"AJAY VARDHAN NAIK\" <<< \n THANK YOU \n");
     printf("-------------------------------------\n\n");
 
 
