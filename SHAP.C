@@ -108,7 +108,7 @@ void exitScreen()
 {
     screenCleaner();
     printf("-------------------------------------\n");
-    printf(" >>> Creators:\n \"GORTHY HARI KRISHNA SAI\"\n \"BAKAM SHARATH KUMAR\"\n \"P. PRUDHVI\" \n \"AJAY VARDHAN NAIK\" <<< \n THANK YOU \n");
+    printf(" >>> Creators:\n \"GORTHY HARI KRISHNA SAI\"\n \"BAKAM SHARATH KUMAR\"\n \"P. PRUDHVI\" \n \"AJAY VARDHAN NAIK\" <<< \n");
     printf("-------------------------------------\n\n");
 
 
@@ -600,11 +600,13 @@ void printMatrix(int **matrix, int rows, int cols) {
 
 // Function to add two matrices
 void addMatrices(int **matrix1, int **matrix2, int **result, int rows, int cols) {
+
     for (int i = 0; i < rows; i++) {
         for (int j = 0; j < cols; j++) {
             result[i][j] = matrix1[i][j] + matrix2[i][j];
         }
-    }
+        }
+
 }
 
 // Function to subtract two matrices
@@ -641,11 +643,6 @@ int matrix() {
 
     printf("Enter the number of columns for Matrix 2: ");
     scanf("%d", &cols2);
-
-    if (cols1 != rows2) {
-        printf("Matrix multiplication not possible.\n");
-        return 0;
-    }
 
     // Dynamic memory allocation for matrix 1
     int **matrix1 = (int **)malloc(rows1 * sizeof(int *));
@@ -701,16 +698,28 @@ int matrix() {
     switch(chooseit){
     case 1 :
         printf("Matrix Addition:\n");
+        if (rows1!=rows2 || cols1!=cols2)
+   {
+       printf(" matrix addition is not possible");
+       return 0;
+   }
+   else{
     addMatrices(matrix1, matrix2, result, rows1, cols1);
     printMatrix(result, rows1, cols1);
-
+   }
     break;
 
     case 2:
       printf("Matrix Subtraction:\n");
+              if (rows1!=rows2 || cols1!=cols2)
+   {
+       printf(" matrix subtraction is not possible");
+       return 0;
+   }
+   else {
     subtractMatrices(matrix1, matrix2, result, rows1, cols1);
     printMatrix(result, rows1, cols1);
-
+   }
       for (int i = 0; i < rows1; i++) {
         free(result[i]);
     }
@@ -719,8 +728,13 @@ int matrix() {
 
     case 3:
        printf("Matrix Multiplication:\n");
+       if (cols1 != rows2) {
+        printf("Matrix multiplication not possible.\n");
+       }
+       else {
     multiplyMatrices(matrix1, matrix2, result, rows1, cols1, cols2);
-    printMatrix(result, rows1, cols2);
+    printMatrix(result, rows1, cols2);}
+
 
       for (int i = 0; i < rows1; i++) {
         free(result[i]);
